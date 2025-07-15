@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Frontend Mentor Solution](https://www.frontendmentor.io/solutions/responsive-nft-card-using-flexbox-and-custom-properties-XXXX)
-- Live Site URL: [Live Demo](https://your-live-site-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/responsive-nft-card-using-flexbox-and-custom-properties-sKytQdA5ea]
+- Live Site URL: [https://esabdul.github.io/nft-preview-card-component/]
 
 ---
 
