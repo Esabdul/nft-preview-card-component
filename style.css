@@ -1,0 +1,261 @@
+:root {
+  --color-primary-blue: hsl(215, 51%, 70%);
+  --color-primary-cyan: hsl(178, 100%, 50%);
+
+  --color-neutral-main-bg: hsl(217, 54%, 11%);
+  --color-neutral-card-bg: hsl(216, 50%, 16%);
+  --color-neutral-line: hsl(215, 32%, 27%);
+  --color-neutral-white: hsl(0, 0%, 100%);
+
+  --font-size-paragraph: 16px;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-semi-bold: 600;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: var(--color-neutral-main-bg);
+  font-family: "Outfit", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 3rem;
+  padding-inline: 1.5rem;
+}
+
+.card {
+  background-color: var(--color-neutral-card-bg);
+  padding-block: 1.4rem;
+  padding-inline: 1.4rem;
+  border-radius: 13px;
+  width: 100%;
+  max-width: 375px;
+  box-shadow: -10px 40px 30px rgba(0, 0, 0, 0.15),
+    10px 20px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card__img {
+  border-radius: 7px;
+}
+
+.card__img:hover {
+  cursor: pointer;
+  background-image: url(images/icon-view.svg);
+}
+
+.card h1 {
+  margin-top: 1.4rem;
+  color: var(--color-neutral-white);
+  font-weight: var(--font-weight-semi-bold);
+  font-size: 23px;
+  transition: color 0.2s;
+}
+
+.card h1:hover {
+  cursor: pointer;
+  color: var(--color-primary-cyan);
+}
+
+.card__description {
+  margin-top: 0.6rem;
+  font-size: var(--font-size-paragraph);
+  color: var(--color-primary-blue);
+  font-weight: var(--font-weight-light);
+}
+
+.card__details {
+  margin-top: 0.9rem;
+  margin-bottom: 0.4rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.card__price {
+  display: inline-flex;
+  font-weight: var(--font-weight-regular);
+}
+
+.card__span-price {
+  color: var(--color-primary-cyan);
+}
+
+.card__time {
+  display: inline-flex;
+}
+
+.card__span-time {
+  color: var(--color-primary-blue);
+  font-weight: var(--font-weight-light);
+}
+
+.card__icon {
+  margin-right: 0.4rem;
+}
+
+.card__time-icon {
+  margin-right: 0.4rem;
+}
+
+.card__divider {
+  height: 1px;
+  border: none;
+  background-color: var(--color-neutral-line);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card__footer {
+  display: flex;
+  align-items: center;
+}
+
+.card__profile {
+  border-radius: 50%;
+  border: 2px solid white;
+  width: 12%;
+  margin-right: 0.7rem;
+}
+
+.profile-text {
+  color: var(--color-primary-blue);
+  display: inline-block;
+  font-weight: var(--font-weight-semi-bold);
+}
+
+.profile-title {
+  color: var(--color-neutral-white);
+  font-weight: var(--font-weight-semi-bold);
+  transition: color 0.2s text-decoration 0.2s;
+}
+
+.profile-title:hover {
+  cursor: pointer;
+  color: var(--color-primary-cyan);
+  text-decoration: underline;
+}
+
+.card__images {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card__images::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 255, 247, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 7px;
+}
+
+.card__images:hover::before,
+.card__images:hover .overlay-img {
+  opacity: 1;
+}
